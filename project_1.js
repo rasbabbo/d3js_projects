@@ -10,11 +10,29 @@ var svgContainer = d3.select("body").append("svg")
 																		.attr("width", 200)
 																		.attr("height", 200);
 
+var circles = svgContainer.selectAll("circle")
+													.data(circleData)
+													.enter()
+													.append("circle");
+
 var circleAttributes = circles
 											 .attr("cx", function (d) {return d.cx; })																	
 											 .attr("cy", function (d) {return d.cy; })
 											 .attr("r", function (d) {return d.radius; })
 											 .style("fill", function (d) {return d.color; });
+
+var rectangles = svgContainer.selectAll("rect")
+													.data(rectangleData)
+													.enter()
+													.append("rect");
+
+var rectangleAttributes = rectangles
+													.attr("x", function (d) {return d.rx; })
+													.attr("y", function (d) {return d.ry; })
+													.attr("height", function (d) {return d.height; })
+													.attr("width", function (d) {return d.width; })
+													.style("fill", function (d) {return d.color; });
+
 
 // var jsonRectangles = [
 // 	{ "x_axis" : 10, "y_axis": 10, "height": 20, "width":20, "color" : "green" },
