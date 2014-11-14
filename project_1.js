@@ -7,7 +7,11 @@ var axisScale = d3.scale.linear()
 												.range([0, 400]);
 
 var xAxis = d3.svg.axis()
-									.scale(axisScale);												
+									.scale(axisScale);
+
+//create group element and call
+var xAxisGroup = svgContainer.append("g")
+															.call(xAxis);																					
 
 
 //ADDING TEXT TO SVG ELEMENTS
